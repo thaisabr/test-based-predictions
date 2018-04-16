@@ -1,0 +1,299 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Understanding Predictive Factors for Merge Conflicts</title>
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600&amp;subset=latin-ext" rel="stylesheet">
+    
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+  </head>
+  <body style="font-family:verdana;">
+    <header>
+      <div class="top">
+          <div class="container">
+              <div class="row">
+                  <div class="col-sm-6">
+                      <p>Understanding Predictive Factors for Merge Conflicts</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="collapse navbar-collapse" id="bs-navbar-collapse">
+            <ul class="nav navbar-nav main-navbar-nav">
+                <li class="active"><a href="main.html" title="">HOME</a></li>
+                <li class="dropdown">
+					<a href="#" title="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Evaluation Results <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<!--<li><a href="rq1-results.html" title="">RQ1: What is the effect of contribution modularity on merge conflicts?</a></li>-->
+						<li><a href="rq2-results.html" title="">RQ2: What is the effect of contribution size on merge conflicts?</a></li>
+						<!--<li><a href="rq3-results.html" title="">RQ3: What is the effect of contribution timing on merge conflicts?</a></li>-->
+					</ul>
+                </li>
+				<li class="dropdown">
+					<a href="#" title="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sample project list<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="sample_Ruby.html" title="">Ruby sample</a></li>
+						<li><a href="sample_Python.html" title="">Python sample</a></li>							
+					</ul>
+				</li>				
+                <!--<li><a href="sample.html" title="">Sample project list</a></li>-->
+            </ul>                           
+        </div>        
+      </div>
+    </nav>
+    </header>
+    <div class="bread_area">
+      <div class="container">
+          <div class="row">
+              <div class="col-sm-12">
+                  <ol class="breadcrumb">
+                      <li><a href="main.html">Home</a></li>
+                      <li class="active">RQ2: What is the effect of contribution size on merge conflicts?</li>
+                  </ol>                    
+              </div>
+          </div>
+      </div>
+    </div>
+    <main class="site-main page-main">
+        <div class="container">
+            <div class="row">
+ <!--               <section class="page col-sm-9">
+                  <h3>Size Factors Descriptive Statistics</h3>
+                    <table class="build_conflicts">
+                      <thead>
+					  <caption><b>Ruby Sample</b></caption>
+                        <tr>
+                          <th> Size Metrics </th>
+                          <th> Range </th>
+                          <th> Average </th>
+                          <th> Standard Deviation </th>
+                        </tr>
+                      </thded>
+                      <tbody>
+                          <tr>
+                            <td> Number of developers </th>
+                            <td> 1 - 102.0 </td>
+                            <td> 2.0 </td>
+                            <td> 3.7 </td>
+                          </tr>
+                          <tr>
+                            <td> Number of commits </th>
+                            <td> 1 - 5608.0 </td>
+                            <td> 10.9 </td>
+                            <td> 77.0 </td>
+                          </tr>	
+                          <tr>
+                            <td> Number of changed files </th>
+                            <td> 1 - 1447.5 </td>
+                            <td> 13.8 </td>
+                            <td> 34.1 </td>
+                          </tr>		
+                          <tr>
+                            <td> Number of changed lines </th>
+                            <td> 1 - 7004140 </td>
+                            <td> 2689.7 </td>
+                            <td> 61969.7 </td>
+                          </tr>							  
+                      </tbody>
+                     </table>
+
+                    <table class="build_conflicts">
+                      <thead>
+					  <caption><b>Python Sample</b></caption>
+                        <tr>
+                          <th> Size Metrics </th>
+                          <th> Range </th>
+                          <th> Average </th>
+                          <th> Standard Deviation </th>
+                        </tr>
+                      </thded>
+                      <tbody>
+                          <tr>
+                            <td> Number of developers </th>
+                            <td> 1 - 13.9 </td>
+                            <td> 1.9 </td>
+                            <td> 1.3 </td>
+                          </tr>
+                          <tr>
+                            <td> Number of commits </th>
+                            <td> 1 -  389.5 </td>
+                            <td> 7.3 </td>
+                            <td> 12.2 </td>
+                          </tr>	
+                          <tr>
+                            <td> Number of changed files </th>
+                            <td> 1 - 910.7 </td>
+                            <td> 10.3 </td>
+                            <td> 24.4 </td>
+                          </tr>		
+                          <tr>
+                            <td> Number of changed lines </th>
+                            <td> 1 - 8188800 </td>
+                            <td> 3707.2 </td>
+                            <td> 129281.5 </td>
+                          </tr>							  
+                      </tbody>
+                     </table>	
+                </section> -->
+                <section class="page col-sm-9">
+                  <h3>Collinearity diagnostic results</h3>
+				  <br>
+				  <i>* We use the Spearman correlation coefficient since it is based on rank data and does not assume a linear relationship</i>	
+                    <table class="build_conflicts" >
+                      <thead>		
+					  <caption><b>Ruby Sample</b></caption>					  
+                        <tr>
+                          <th> Factor Metric  </th>
+                          <th> Strong correlation with </th>
+                          <th> cor * </th>
+						  <th> p-value </th>
+					    </tr>
+                      </thded>
+                      <tbody>
+                          <tr> <!-- Changes to a common slice-->
+                            <td > <b>Changes to a common slice</b> </th>
+                            <td> - </td>
+                            <td> - </td>
+							<td> - </td>
+                          </tr>
+                          <tr> <!-- início Number of commits-->
+							<td rowspan="3"><b>Number of commits</b></th>
+								<td rowspan="1"> Number of developers </td>    
+									<td rowspan="1"> 0.67 </td> 	
+										<td rowspan="1"> < 2.2e-16 </td> 							
+                          </tr>
+                          <tr>
+                            <td rowspan="1"> Number of changed files </th>
+									<td rowspan="1"> 0.74 </td> 	
+										<td rowspan="1"> < 2.2e-16 </td> 						
+						  </tr>
+					      <tr>
+                            <td rowspan="1"> Number of changed lines </td>
+									<td rowspan="1"> 0.65 </td> 	
+										<td rowspan="1"> < 2.2e-16 </td> 							
+                          </tr>
+                          <tr> <!-- Number of developers-->
+                            <td><b> Number of developers</b></th>
+                            <td> Number of commits </td>
+                            <td> 0.67 </td>
+							<td> < 2.2e-16 </td>
+                          </tr>						  
+                          <tr> <!-- início Number of changed files-->
+							<td rowspan="2"><b>Number of changed files</b></th>
+								<td rowspan="1"> Number of commits </td>    
+									<td rowspan="1"> 0.74 </td> 	
+										<td rowspan="1"> < 2.2e-16 </td> 							
+                          </tr>
+                          <tr>
+                            <td rowspan="1"> Number of changed lines </th>
+									<td rowspan="1"> 0.81 </td> 	
+										<td rowspan="1"> < 2.2e-16 </td> 						
+						  </tr>
+                          <tr> <!-- início Number of changed lines-->
+							<td rowspan="2"><b>Number of changed lines</b></th>
+								<td rowspan="1"> Number of commits </td>    
+									<td rowspan="1"> 0.65 </td> 	
+										<td rowspan="1"> < 2.2e-16 </td> 							
+                          </tr>
+                          <tr>
+                            <td rowspan="1"> Number of changed files </th>
+									<td rowspan="1"> 0.81 </td> 	
+										<td rowspan="1"> < 2.2e-16 </td> 						
+						  </tr>
+                      </tbody>
+                     </table>		
+
+				  <br>
+                    <table class="build_conflicts" >
+                      <thead>		
+					  <caption><b>Python Sample</b></caption>					  
+                        <tr>
+                          <th> Factor Metric  </th>
+                          <th> Strong correlation with </th>
+                          <th> cor * </th>
+						  <th> p-value </th>
+					    </tr>
+                      </thded>
+                      <tbody>
+                          <tr> <!-- Changes to a common slice-->
+                            <td > <b>Changes to a common slice</b> </th>
+                            <td> - </td>
+                            <td> - </td>
+							<td> - </td>
+                          </tr>
+                          <tr> <!-- início Number of commits-->
+							<td rowspan="3"><b>Number of commits</b></th>
+								<td rowspan="1"> Number of developers </td>    
+									<td rowspan="1"> 0.63 </td> 	
+										<td rowspan="1"> < 2.2e-16 </td> 							
+                          </tr>
+                          <tr>
+                            <td rowspan="1"> Number of changed files </th>
+									<td rowspan="1"> 0.80 </td> 	
+										<td rowspan="1"> < 2.2e-16 </td> 						
+						  </tr>
+					      <tr>
+                            <td rowspan="1"> Number of changed lines </td>
+									<td rowspan="1"> 0.72 </td> 	
+										<td rowspan="1"> < 2.2e-16 </td> 							
+                          </tr>
+                          <tr> <!-- Number of developers-->
+                            <td><b> Number of developers</b></th>
+                            <td> Number of commits </td>
+                            <td> 0.63 </td>
+							<td> < 2.2e-16 </td>
+                          </tr>						  
+                          <tr> <!-- início Number of changed files-->
+							<td rowspan="2"><b>Number of changed files</b></th>
+								<td rowspan="1"> Number of commits </td>    
+									<td rowspan="1"> 0.80 </td> 	
+										<td rowspan="1"> < 2.2e-16 </td> 							
+                          </tr>
+                          <tr>
+                            <td rowspan="1"> Number of changed lines </th>
+									<td rowspan="1"> 0.83 </td> 	
+										<td rowspan="1"> < 2.2e-16 </td> 						
+						  </tr>
+                          <tr> <!-- início Number of changed lines-->
+							<td rowspan="2"><b>Number of changed lines</b></th>
+								<td rowspan="1"> Number of commits </td>    
+									<td rowspan="1"> 0.72 </td> 	
+										<td rowspan="1"> < 2.2e-16 </td> 							
+                          </tr>
+                          <tr>
+                            <td rowspan="1"> Number of changed files </th>
+									<td rowspan="1"> 0.83 </td> 	
+										<td rowspan="1"> < 2.2e-16 </td> 						
+						  </tr>
+                      </tbody>
+                     </table>			 
+					 <br>
+            </div>
+        </div>
+    </main>
+    <footer>
+      <div class="container">
+        <div class="row">
+            
+        </div>
+        </div>
+      <div id="copyright">
+            <div class="container">
+                <div class="cen">
+                    <div class="col-md-8">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    </body>
+  </html>
