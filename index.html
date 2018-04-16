@@ -61,14 +61,13 @@
     <main class="site-main page-main">
         <div class="container">
             <div class="row">
-                <div class="page col-sm-12-centered">
+                <div class="page col-sm-12">
                   <h2>Predicting code changes based on automated acceptance tests</h2>
 				</div>
 			</div>
 			<div class="row">
                 <section class="page col-sm-12">
 				  <div class="abstract">
-                    <h4>Abstract:</h4>
                     In a collaborative development context, conflicting code changes damage software quality and developers productivity. A possible solution for reducing conflicts is to avoid parallel execution of potentially conflicting tasks. Although hopeful, such idea is challenging because it relies on the prediction of the required code changes to complete a task, which is a time-consuming and error-prone activity. For mitigating the problem of predicting code changes, we investigate the usage of automated acceptance tests to infer them. By developing a support tool that infers code changes through static analysis of Cucumber tests, we examined 340 tasks from 10 Ruby on Rails projects on GitHub, according to different strategies to delimit inferences. As a baseline, we consider random task interfaces and task interfaces based on similar past tasks. Our results bring evidence that automated acceptance tests are a promising predictor of code changes, especially when dealing with controllers. Moreover, test-based predictions are more precise than random predictions but less precise than past-based predictions. However, a test-based predictor achieves more code changes than a past-based predictor, which is more relevant for reducing conflicts. Compared to a random predictor, test-based predictions cover more changes when dealing with controllers. Our findings mean we can use automated acceptance tests for estimating conflict risk among tasks. At last, they provide insight into alternative strategies to improve test-based interfaces.
                   </div>
 
