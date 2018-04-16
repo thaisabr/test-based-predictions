@@ -37,8 +37,8 @@
 		        	<li class="dropdown">
 		            	<a href="#" title="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Evaluation Results <span class="caret"></span></a>
 		            	<ul class="dropdown-menu">
-					<li><a href="rq1-results.html" title="">RQ1: How often can ITest predict files a developer changes for concluding a programming task?</a></li>
-                      			<li><a href="rq2-results.html" title="">RQ2: Does is static code analysis suitable to compute ITest??</a></li>
+					    <li><a href="rq1-results.html" title="">RQ1: How often can ITest predict files a developer changes for concluding a programming task?</a></li>
+                      	<li><a href="rq2-results.html" title="">RQ2: Does is static code analysis suitable to compute ITest??</a></li>
 		      			<li><a href="rq3-results.html" title="">RQ3: Does is ITest a better code change predictor than IRandom?</a></li>
 		      			<li><a href="rq4-results.html" title="">RQ4: Does is ITest a better code change predictor than IText?</a></li>
 		            	</ul>
@@ -46,8 +46,8 @@
 					<li class="dropdown">
 		            	<a href="#" title="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sample project list<span class="caret"></span></a>
 		            	<ul class="dropdown-menu">
-		                	<li><a href="sample_Ruby.html" title="">Sample of 77 tasks</a></li>
-		                	<li><a href="sample_Python.html" title="">Sample of 315 tasks</a></li>							
+		                	<li><a href="sample_77.html" title="">Sample of 77 tasks</a></li>
+		                	<li><a href="sample_315.html" title="">Sample of 315 tasks</a></li>							
 		            	</ul>
 		        	</li>
 		    	</ul>                           
@@ -71,38 +71,20 @@
                   <h2>Predicting code changes based on automated acceptance tests</h2>
                   <div class="abstract">
                     <h4>Abstract:</h4>
-                    In a collaborative development context, conflicting code changes damage software quality and developers productivity.
-	A possible solution for reducing conflicts is to avoid parallel execution of potentially conflicting tasks. 
-	Although hopeful, such idea is challenging because it relies on the prediction of the required code changes to complete a task, 
-	which is a time-consuming and error-prone activity. 
-	For mitigating the problem of predicting code changes, we investigate the usage of automated acceptance tests to infer them. 
-	By developing a support tool that infers code changes through static analysis of Cucumber tests, 
-	we examined 340 tasks from 10 Ruby on Rails projects on GitHub, according to different strategies to delimit inferences. 
-	As a baseline, we consider random task interfaces and task interfaces based on similar past tasks. 
-	Our results bring evidence that automated acceptance tests are a promising predictor of code changes, 
-	especially when dealing with controllers. 
-	Moreover, test-based predictions are more precise than random predictions but less precise than past-based predictions. 
-	However, a test-based predictor achieves more code changes than a past-based predictor, which is more relevant for reducing conflicts. 
-	Compared to a random predictor, test-based predictions cover more changes when dealing with controllers. 
-	Our findings mean we can use automated acceptance tests for estimating conflict risk among tasks. 
-	At last, they provide insight into alternative strategies to improve test-based interfaces.
-
+                    In a collaborative development context, conflicting code changes damage software quality and developers productivity. A possible solution for reducing conflicts is to avoid parallel execution of potentially conflicting tasks. Although hopeful, such idea is challenging because it relies on the prediction of the required code changes to complete a task, which is a time-consuming and error-prone activity. For mitigating the problem of predicting code changes, we investigate the usage of automated acceptance tests to infer them. By developing a support tool that infers code changes through static analysis of Cucumber tests, we examined 340 tasks from 10 Ruby on Rails projects on GitHub, according to different strategies to delimit inferences. As a baseline, we consider random task interfaces and task interfaces based on similar past tasks. Our results bring evidence that automated acceptance tests are a promising predictor of code changes, especially when dealing with controllers. Moreover, test-based predictions are more precise than random predictions but less precise than past-based predictions. However, a test-based predictor achieves more code changes than a past-based predictor, which is more relevant for reducing conflicts. Compared to a random predictor, test-based predictions cover more changes when dealing with controllers. Our findings mean we can use automated acceptance tests for estimating conflict risk among tasks. At last, they provide insight into alternative strategies to improve test-based interfaces.
                   </div>
 
                   <div class="study">
                     <h4>Study Setup</h4>
-					
-					<p>We searched for projects that use Cucumber and SimpleCov or Coveralls. We only accepted projects created from 2010, for optimizing the search and improving the chance to find relevant projects. We tried different sorting criteria, as the number of stars (descending order) and date of the last update, hoping to select more meaningful and popular projects. At last, we tried to restrict project's minimum number of stars, adopting values ranging from 10 to 1,000 stars.</p>
-					<p>Next, we need to find tasks with Cucumber tests. Thus, for extracting tasks from each found project, we cloned repositories and searched for merge commits (excluding fast-forwarding merges) by using JGit API, sorting them by descending chronological order. Then, for each merge commit we extracted two tasks. As preliminary filtering, we selected tasks that changed both production and test files. To this end, we collected tasks' commits and classified the changeset as our tool for ITest inference does. The result of this mining phase is a task set for which we can compute ITest and IReal.</p>
+					<p>We searched for projects that use Cucumber and SimpleCov or Coveralls, and that were created from 2010. We tried different sorting criteria, as the number of stars (descending order) and date of the last update, hoping to select more meaningful and popular projects. At last, we tried to restrict project's minimum number of stars, adopting values ranging from 10 to 1,000 stars.</p>
+					<p>Next, we needed to find tasks with Cucumber tests. Thus, for extracting tasks from each found project, we cloned repositories and searched for merge commits (excluding fast-forwarding merges), sorting them by descending chronological order. Then, for each merge commit we extracted two tasks. As preliminary filtering, we selected tasks that changed both production and test files. To this end, we collected tasks' commits and classified the changeset as our tool for ITest inference does. The result of this mining phase is a task set for which we can compute ITest and IReal.</p>
 					<p>Once we have a tasks set, we move on to the execution phase. First, we identified the acceptance tests of each task as added or modified scenarios by task's commit. Next, we computed ITest and IReal, and we evaluated precision and recall for each task.</p>
-                  </div>
-                  <div class="study">
                     <ul>
 					  <li><a href="https://github.com/thaisabr/mining_git" title="">Script for mining projects and extracting tasks</a></li>
 					  <li><a href="https://github.com/thaisabr/TestInterfaceEvaluation" title="">Script for evaluating tasks</a></li>
                       <li><a href="sample.html" title="">Task samples</a></li>				  
                     </ul>
-                  </div>
+				  </div>
                   <div class="study">
                     <h4>Evaluation Results</h4>
                     <ul>
