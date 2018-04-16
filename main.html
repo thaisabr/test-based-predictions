@@ -4,7 +4,7 @@
   	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Understanding Predictive Factors for Merge Conflicts</title>
+    <title>Predicting code changes based on automated acceptance tests</title>
     
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600&amp;subset=latin-ext" rel="stylesheet">
     
@@ -24,7 +24,7 @@
 		  <div class="container">
 		      <div class="row">
 		          <div class="col-sm-6">
-		              <p>Understanding Predictive Factors for Merge Conflicts</p>
+		              <p>Predicting code changes based on automated acceptance tests</p>
 		          </div>
 		      </div>
 		  </div>
@@ -37,19 +37,19 @@
 		        	<li class="dropdown">
 		            	<a href="#" title="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Evaluation Results <span class="caret"></span></a>
 		            	<ul class="dropdown-menu">
-		                	<li><a href="rq1-results.html" title="">RQ1: What is the effect of contribution modularity on merge conflicts?</a></li>
-		                	<li><a href="rq2-results.html" title="">RQ2: What is the effect of contribution size on merge conflicts?</a></li>
-							<li><a href="rq3-results.html" title="">RQ3: What is the effect of contribution timing on merge conflicts?</a></li>
+					<li><a href="rq1-results.html" title="">RQ1: How often can ITest predict files a developer changes for concluding a programming task?</a></li>
+                      			<li><a href="rq2-results.html" title="">RQ2: Does is static code analysis suitable to compute ITest??</a></li>
+		      			<li><a href="rq3-results.html" title="">RQ3: Does is ITest a better code change predictor than IRandom?</a></li>
+		      			<li><a href="rq4-results.html" title="">RQ4: Does is ITest a better code change predictor than IText?</a></li>
 		            	</ul>
 		        	</li>
 					<li class="dropdown">
 		            	<a href="#" title="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sample project list<span class="caret"></span></a>
 		            	<ul class="dropdown-menu">
-		                	<li><a href="sample_Ruby.html" title="">Ruby sample</a></li>
-		                	<li><a href="sample_Python.html" title="">Python sample</a></li>							
+		                	<li><a href="sample_Ruby.html" title="">Sample of 77 tasks</a></li>
+		                	<li><a href="sample_Python.html" title="">Sample of 315 tasks</a></li>							
 		            	</ul>
-		        	</li>					
-		        	<!--<li><a href="sample_Ruby.html" title="">Sample project list</a></li>-->
+		        	</li>
 		    	</ul>                           
 			</div>        
 			</div>
@@ -68,34 +68,24 @@
         <div class="container">
             <div class="row">
                 <section class="page col-sm-9">
-                  <h2>Understanding Predictive Factors for Merge Conflicts</h2>
+                  <h2>Predicting code changes based on automated acceptance tests</h2>
                   <div class="abstract">
                     <h4>Abstract:</h4>
-                    Merge conflicts often occur when developers change the same code
-artifacts. Such conflicts might be frequent in practice, and resolving
-them might be costly and is an error-prone activity. To minimize these problems by
-reducing merge conflicts, it is important to better understand how
-conflict occurrence is affected by technical and organizational factors. With that aim, we investigate seven factors related to three different aspects
-of developers contributions: modularity, size, and timing. 
-We evaluate the factors effect on the following variables: conflict
-occurrence, number of conflicts, and number of files with conflicts. By analyzing 20449 merge scenarios from 101 Ruby and 25 Python MVC projects in 
-GitHub, we find evidence that the likelihood of merge conflict occurrence significantly
-increases when contributions to be merged are not modular in the sense that they 
-involve files from the same MVC slice (related model, view, and controller files). 
-We also find that bigger contributions involving more developers, commits, changed 
-files, or changed code lines (except for Python) more likely lead to merge conflicts. 
-With respect to the timing factors, we observe that contributions developed over longer 
-periods of time more likely lead to conflicts. Contrasting, our sample reveals that the conclusion delay between merged 
-contributions has no effect on merge conflict occurrence. No evaluated
-factor shows predictive power concerning both the number of merge
-conflicts and the number of files with conflicts. Based on our findings, to avoid merge conflicts in the context of MVC projects, 
-managers should consider aligning the structure of development tasks with the structure 
-of the associated application MVC slices, and avoid the parallel execution of tasks
-that focus on common slices. Our results could also be used to derive merge conflict prediction models. 
-Project management and assistive tools could benefit from these models by 
-supporting earlier decisions about when to integrate contributions to 
-mitigate or reduce conflicts. 
-
+                    In a collaborative development context, conflicting code changes damage software quality and developers productivity.
+	A possible solution for reducing conflicts is to avoid parallel execution of potentially conflicting tasks. 
+	Although hopeful, such idea is challenging because it relies on the prediction of the required code changes to complete a task, 
+	which is a time-consuming and error-prone activity. 
+	For mitigating the problem of predicting code changes, we investigate the usage of automated acceptance tests to infer them. 
+	By developing a support tool that infers code changes through static analysis of Cucumber tests, 
+	we examined 340 tasks from 10 Ruby on Rails projects on GitHub, according to different strategies to delimit inferences. 
+	As a baseline, we consider random task interfaces and task interfaces based on similar past tasks. 
+	Our results bring evidence that automated acceptance tests are a promising predictor of code changes, 
+	especially when dealing with controllers. 
+	Moreover, test-based predictions are more precise than random predictions but less precise than past-based predictions. 
+	However, a test-based predictor achieves more code changes than a past-based predictor, which is more relevant for reducing conflicts. 
+	Compared to a random predictor, test-based predictions cover more changes when dealing with controllers. 
+	Our findings mean we can use automated acceptance tests for estimating conflict risk among tasks. 
+	At last, they provide insight into alternative strategies to improve test-based interfaces.
 
                   </div>
 
@@ -106,24 +96,22 @@ mitigate or reduce conflicts.
                   <div class="container">
                   	<figure>
                     	<img src="img/StudySetup.png" alt="Study Design" width="400" height="300" title="Study Design">
-                    	<!--<figcaption>Figure 1 - Study Setup</figcaption>-->
                     </figure>
                   </div>
                   <div class="study">
                     <h4>Sample projects list and Scripts</h4>
                     <ul>
                       <li><a href="sample.html" title="">Sample project list and characteristics</a></li>
-                      <!--<li><a href="miningScripts.zip" title="" target="_blank" >Mining Scripts</a></li>
-					  <li><a href="predictorsScritps.zip" title="" target="_blank" >Predictors Collecting Scripts</a></li>-->
                       <li><a href="scripts.zip" title="" target="_blank" >Scripts</a></li>					  
                     </ul>
                   </div>
                   <div class="study">
                     <h4>Evaluation Results</h4>
                     <ul>
-                      <li><a href="rq1-results.html" title="">RQ1: What is the effect of contribution modularity on merge conflicts?</a></li>
-                      <li><a href="rq2-results.html" title="">RQ2: What is the effect of contribution size on merge conflicts?</a></li>
-					  <li><a href="rq3-results.html" title="">RQ3: What is the effect of contribution timing on merge conflicts?</a></li>
+                      <li><a href="rq1-results.html" title="">RQ1: How often can ITest predict files a developer changes for concluding a programming task?</a></li>
+                      <li><a href="rq2-results.html" title="">RQ2: Does is static code analysis suitable to compute ITest??</a></li>
+		      <li><a href="rq3-results.html" title="">RQ3: Does is ITest a better code change predictor than IRandom?</a></li>
+		      <li><a href="rq4-results.html" title="">RQ4: Does is ITest a better code change predictor than IText?</a></li>
                     </ul>
                   </div>
                 </section>
