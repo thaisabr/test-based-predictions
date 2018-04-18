@@ -70,16 +70,81 @@
 
 <p class='character'><br></p>
 
+<p class='character'><hr></p>
+
  <h4 > On average, ITest can predict more than half of changes in controllers</h4>
 
+<p class='character'>ITest recall for CF configuration (content filtered by controllers) and for NF configuration (no content filtering).</p>
+
 <p align=center><img src='img/evaluation_cf_recall.png' border=1 width=500>
+<p class='character'><hr></p>
+
  <h4 > On average, most files in ITest are not actually changed by tasks, but it does not mean they are not relevant to complete a task</h4>
 
+<p class='character'>ITest precision for CF configuration (content filtered by controllers) and for NF configuration (no content filtering).</p>
+
 <p align=center><img src='img/evaluation_cf_precision.png' border=1 width=500>
+<p class='character'><hr></p>
+
  <h4 > Our routing mechanism has an insignificant impact on ITest precision and recall</h4>
 
+<p class='character'>Precision and recall measures of NF configuration (no content filtering) when using Rails routes and inferred routes.</p>
+
 <p align=center><img src='img/evaluation_routes.png' border=1 width=500>
+<p class='character'>Precision and recall measures of CF configuration (content filtered by controllers) when using Rails routes and inferred routes.</p>
+
 <p align=center><img src='img/evaluation_routes-controller.png' border=1 width=500>
+
+<p align= center >
+<table cellspacing=0 border=0>
+<caption align=top class=captiondataframe>Wilcoxon Signed-Rank test applied to precision and recall measures of ITest when using Rails routes and inferred routes</caption>
+<tr><td>
+	<table border=0 class=build_conflicts center>
+	<tbody> 
+	<tr class= firstline > 
+		<th>Hypothesis  </th>
+		<th>pvalue  </th>
+		<th>r</th> 
+	</tr> 
+<tr> 
+<td class=cellinside>Inferred routes precision = Rails routes precision
+</td>
+<td class=cellinside>0.5306
+</td>
+<td class=cellinside>0.071
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>Inferred routes recall = Rails routes recall
+</td>
+<td class=cellinside>0.0039
+</td>
+<td class=cellinside>0.329
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>Inferred routes controller precision = Rails routes controller precision
+</td>
+<td class=cellinside>0.3951
+</td>
+<td class=cellinside>0.097
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>Inferred routes controller recall = Rails routes controller recall
+</td>
+<td class=cellinside>0.0142
+</td>
+<td class=cellinside>0.279
+</td></tr>
+ 
+	</tbody>
+</table>
+ </td></table>
+ <br>
+
+<p class='character'><hr></p>
+
  <h4 > On average, the higher the test coverage per task, the more superior the ITest predictive ability</h4>
 
 
@@ -90,7 +155,7 @@
 	<table border=0 class=build_conflicts center>
 	<tbody> 
 	<tr class= firstline > 
-		<th>correlation  </th>
+		<th>Correlation  </th>
 		<th>rho  </th>
 		<th>pvalue</th> 
 	</tr> 
@@ -131,16 +196,562 @@
  </td></table>
  <br>
 
+<p class='character'><hr></p>
+
  <h4 > Excluding files accessed by test precondition and postcondition decreases the predictive ability of ITest</h4>
 
+<p class='character'>Precision and recall measures of WF configuration (content filtered by when steps) and for NF configuration (no content filtering).</p>
+
 <p align=center><img src='img/evaluation_wf.png' border=1 width=500>
+<p class='character'><hr></p>
+
  <h4 > Tests added during tasks execution are more likely to align with tasks</h4>
 
+<p class='character'>Precision and recall measures of AF configuration (entry tests filtered by added tests) and for NF configuration (no content filtering).</p>
+
 <p align=center><img src='img/evaluation_af.png' border=1 width=500>
+
+<p align= center >
+<table cellspacing=0 border=0>
+<caption align=top class=captiondataframe>Wilcoxon Signed-Rank test applied to precision and recall measures of the main configurations of ITest</caption>
+<tr><td>
+	<table border=0 class=build_conflicts center>
+	<tbody> 
+	<tr class= firstline > 
+		<th>Hypothesis  </th>
+		<th>pvalue  </th>
+		<th>r</th> 
+	</tr> 
+<tr> 
+<td class=cellinside>ITest-NF Precision = ITest-AF Precision
+</td>
+<td class=cellinside>2.6e-10
+</td>
+<td class=cellinside>0.36
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-NF Recall = ITest-AF Recall
+</td>
+<td class=cellinside>2.1e-22
+</td>
+<td class=cellinside>0.55
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-NF Precision = ITest-CF Precision
+</td>
+<td class=cellinside>1.7e-21
+</td>
+<td class=cellinside>0.54
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-NF Recall = ITest-CF Recall
+</td>
+<td class=cellinside>2.0e-30
+</td>
+<td class=cellinside>0.65
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-NF Precision = ITest-WF Precision
+</td>
+<td class=cellinside>2.7e-05
+</td>
+<td class=cellinside>0.24
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-NF Recall = ITest-WF Recall
+</td>
+<td class=cellinside>1.2e-38
+</td>
+<td class=cellinside>0.73
+</td></tr>
+ 
+	</tbody>
+</table>
+ </td></table>
+ <br>
+
+<p class='character'><hr></p>
+
  <h4 > ITest performs better as a predictor of changes in controllers</h4>
 
+<p class='character'>Precision values for the 8 possible ITest configurations: NF (no filter), AF (added-filter), CF (controller-filter),
+       ACF (added-controller-filter), WF (when-filter), WCF (when-controller-filter), AWF (added-when-filter), AWCF (added-when-controller-filter)</p>
+
 <p align=center><img src='img/evaluation_all_precision.png' border=1 width=500>
-<p align=center><img src='img/evaluation_all_recall.png' border=1 width=500>            </section>
+<p class='character'>Recall values for the 8 possible ITest configurations: NF (no filter), AF (added-filter), CF (controller-filter),
+       ACF (added-controller-filter), WF (when-filter), WCF (when-controller-filter), AWF (added-when-filter), AWCF (added-when-controller-filter)</p>
+
+<p align=center><img src='img/evaluation_all_recall.png' border=1 width=500>
+
+<p align= center >
+<table cellspacing=0 border=0>
+<caption align=top class=captiondataframe>Wilcoxon Signed-Rank test combined with the Bonferroni correction method applied to precision and recall measures for all configurations of ITest</caption>
+<tr><td>
+	<table border=0 class=build_conflicts center>
+	<tbody> 
+	<tr class= firstline > 
+		<th>Hypothesis  </th>
+		<th>pvalue  </th>
+		<th>r</th> 
+	</tr> 
+<tr> 
+<td class=cellinside>ITest-NF Precision = ITest-AF Precision
+</td>
+<td class=cellinside>7.3e-09
+</td>
+<td class=cellinside>0.356
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-NF Precision = ITest-CF Precision
+</td>
+<td class=cellinside>4.8e-20
+</td>
+<td class=cellinside>0.536
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-NF Precision = ITest-ACF Precision
+</td>
+<td class=cellinside>9.8e-22
+</td>
+<td class=cellinside>0.559
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-NF Precision = ITest-WF Precision
+</td>
+<td class=cellinside>7.5e-04
+</td>
+<td class=cellinside>0.237
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-NF Precision = ITest-WCF Precision
+</td>
+<td class=cellinside>4.6e-08
+</td>
+<td class=cellinside>0.340
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-NF Precision = ITest-AWF Precision
+</td>
+<td class=cellinside>1.3e-20
+</td>
+<td class=cellinside>0.544
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-NF Precision = ITest-AWCF Precision
+</td>
+<td class=cellinside>5.8e-22
+</td>
+<td class=cellinside>0.562
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-AF Precision = ITest-CF Precision
+</td>
+<td class=cellinside>3.5e-13
+</td>
+<td class=cellinside>0.434
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-AF Precision = ITest-ACF Precision
+</td>
+<td class=cellinside>4.5e-19
+</td>
+<td class=cellinside>0.523
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-AF Precision = ITest-WF Precision
+</td>
+<td class=cellinside>1.0e+00
+</td>
+<td class=cellinside>0.092
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-AF Precision = ITest-WCF Precision
+</td>
+<td class=cellinside>2.5e-02
+</td>
+<td class=cellinside>0.187
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-AF Precision = ITest-AWF Precision
+</td>
+<td class=cellinside>7.8e-16
+</td>
+<td class=cellinside>0.476
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-AF Precision = ITest-AWCF Precision
+</td>
+<td class=cellinside>3.9e-19
+</td>
+<td class=cellinside>0.524
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-CF Precision = ITest-ACF Precision
+</td>
+<td class=cellinside>2.8e-04
+</td>
+<td class=cellinside>0.249
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-CF Precision = ITest-WF Precision
+</td>
+<td class=cellinside>6.3e-12
+</td>
+<td class=cellinside>0.413
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-CF Precision = ITest-WCF Precision
+</td>
+<td class=cellinside>6.2e-07
+</td>
+<td class=cellinside>0.315
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-CF Precision = ITest-AWF Precision
+</td>
+<td class=cellinside>3.6e-03
+</td>
+<td class=cellinside>0.216
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-CF Precision = ITest-AWCF Precision
+</td>
+<td class=cellinside>8.9e-06
+</td>
+<td class=cellinside>0.288
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-ACF Precision = ITest-WF Precision
+</td>
+<td class=cellinside>7.0e-16
+</td>
+<td class=cellinside>0.477
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-ACF Precision = ITest-WCF Precision
+</td>
+<td class=cellinside>6.2e-12
+</td>
+<td class=cellinside>0.413
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-ACF Precision = ITest-AWF Precision
+</td>
+<td class=cellinside>1.0e+00
+</td>
+<td class=cellinside>0.018
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-ACF Precision = ITest-AWCF Precision
+</td>
+<td class=cellinside>9.8e-02
+</td>
+<td class=cellinside>0.165
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-WF Precision = ITest-WCF Precision
+</td>
+<td class=cellinside>8.3e-06
+</td>
+<td class=cellinside>0.289
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-WF Precision = ITest-AWF Precision
+</td>
+<td class=cellinside>3.0e-19
+</td>
+<td class=cellinside>0.526
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-WF Precision = ITest-AWCF Precision
+</td>
+<td class=cellinside>6.8e-21
+</td>
+<td class=cellinside>0.548
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-WCF Precision = ITest-AWF Precision
+</td>
+<td class=cellinside>4.5e-13
+</td>
+<td class=cellinside>0.433
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-WCF Precision = ITest-AWCF Precision
+</td>
+<td class=cellinside>1.2e-18
+</td>
+<td class=cellinside>0.517
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-AWF Precision = ITest-AWCF Precision
+</td>
+<td class=cellinside>4.4e-03
+</td>
+<td class=cellinside>0.213
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-NF Recall = ITest-AF Recall
+</td>
+<td class=cellinside>5.7e-21
+</td>
+<td class=cellinside>0.549
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-NF Recall = ITest-CF Recall
+</td>
+<td class=cellinside>5.5e-29
+</td>
+<td class=cellinside>0.646
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-NF Recall = ITest-ACF Recall
+</td>
+<td class=cellinside>1.6e-17
+</td>
+<td class=cellinside>0.501
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-NF Recall = ITest-WF Recall
+</td>
+<td class=cellinside>3.2e-37
+</td>
+<td class=cellinside>0.733
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-NF Recall = ITest-WCF Recall
+</td>
+<td class=cellinside>5.3e-40
+</td>
+<td class=cellinside>0.760
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-NF Recall = ITest-AWF Recall
+</td>
+<td class=cellinside>2.3e-12
+</td>
+<td class=cellinside>0.421
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-NF Recall = ITest-AWCF Recall
+</td>
+<td class=cellinside>9.1e-05
+</td>
+<td class=cellinside>0.262
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-AF Recall = ITest-CF Recall
+</td>
+<td class=cellinside>2.1e-33
+</td>
+<td class=cellinside>0.694
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-AF Recall = ITest-ACF Recall
+</td>
+<td class=cellinside>1.5e-27
+</td>
+<td class=cellinside>0.630
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-AF Recall = ITest-WF Recall
+</td>
+<td class=cellinside>9.0e-12
+</td>
+<td class=cellinside>0.411
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-AF Recall = ITest-WCF Recall
+</td>
+<td class=cellinside>8.9e-34
+</td>
+<td class=cellinside>0.698
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-AF Recall = ITest-AWF Recall
+</td>
+<td class=cellinside>6.0e-19
+</td>
+<td class=cellinside>0.521
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-AF Recall = ITest-AWCF Recall
+</td>
+<td class=cellinside>1.4e-11
+</td>
+<td class=cellinside>0.407
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-CF Recall = ITest-ACF Recall
+</td>
+<td class=cellinside>1.5e-10
+</td>
+<td class=cellinside>0.389
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-CF Recall = ITest-WF Recall
+</td>
+<td class=cellinside>1.7e-38
+</td>
+<td class=cellinside>0.745
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-CF Recall = ITest-WCF Recall
+</td>
+<td class=cellinside>5.2e-40
+</td>
+<td class=cellinside>0.760
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-CF Recall = ITest-AWF Recall
+</td>
+<td class=cellinside>1.6e-15
+</td>
+<td class=cellinside>0.472
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-CF Recall = ITest-AWCF Recall
+</td>
+<td class=cellinside>8.3e-21
+</td>
+<td class=cellinside>0.547
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-ACF Recall = ITest-WF Recall
+</td>
+<td class=cellinside>4.7e-31
+</td>
+<td class=cellinside>0.669
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-ACF Recall = ITest-WCF Recall
+</td>
+<td class=cellinside>1.5e-36
+</td>
+<td class=cellinside>0.726
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-ACF Recall = ITest-AWF Recall
+</td>
+<td class=cellinside>4.1e-02
+</td>
+<td class=cellinside>0.179
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-ACF Recall = ITest-AWCF Recall
+</td>
+<td class=cellinside>7.1e-14
+</td>
+<td class=cellinside>0.446
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-WF Recall = ITest-WCF Recall
+</td>
+<td class=cellinside>7.8e-16
+</td>
+<td class=cellinside>0.476
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-WF Recall = ITest-AWF Recall
+</td>
+<td class=cellinside>6.4e-32
+</td>
+<td class=cellinside>0.678
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-WF Recall = ITest-AWCF Recall
+</td>
+<td class=cellinside>6.6e-21
+</td>
+<td class=cellinside>0.548
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-WCF Recall = ITest-AWF Recall
+</td>
+<td class=cellinside>1.3e-34
+</td>
+<td class=cellinside>0.706
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-WCF Recall = ITest-AWCF Recall
+</td>
+<td class=cellinside>1.2e-29
+</td>
+<td class=cellinside>0.653
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-AWF Recall = ITest-AWCF Recall
+</td>
+<td class=cellinside>1.0e-08
+</td>
+<td class=cellinside>0.353
+</td></tr>
+ 
+	</tbody>
+</table>
+ </td></table>
+ <br>
+            </section>
                         </div>
         </div>
   </main>

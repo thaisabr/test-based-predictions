@@ -70,10 +70,67 @@
 
 <p class='character'><br></p>
 
+<p class='character'><hr></p>
+
  <h4 > ITestD is a better predictor of changes in controllers than ITestS</h4>
 
+<p class='character'>Recall values for ITestS and ITestD, considering CF (controller-filter) and NF (no filter) configurations.</p>
+
 <p align=center><img src='img/evaluation_itestd-recall.png' border=1 width=500>
-<p align=center><img src='img/evaluation_itestd-precision.png' border=1 width=500>            </section>
+<p class='character'>Precision values for ITestS and ITestD, considering CF (controller-filter) and NF (no filter) configurations.</p>
+
+<p align=center><img src='img/evaluation_itestd-precision.png' border=1 width=500>
+<p class='character'><hr></p>
+
+
+<p align= center >
+<table cellspacing=0 border=0>
+<caption align=top class=captiondataframe>Wilcoxon Signed-Rank test applied to precision and recall measures of ITestS and ITestD</caption>
+<tr><td>
+	<table border=0 class=build_conflicts center>
+	<tbody> 
+	<tr class= firstline > 
+		<th>hypothesis  </th>
+		<th>pvalue  </th>
+		<th>r</th> 
+	</tr> 
+<tr> 
+<td class=cellinside>ITestS-NF precision = ITestD-NF precision
+</td>
+<td class=cellinside>0.8951
+</td>
+<td class=cellinside>0.015
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITestS-NF recall = ITestD-NF recall
+</td>
+<td class=cellinside>0.6833
+</td>
+<td class=cellinside>0.046
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITestS-CF precision = ITestD-CF precision
+</td>
+<td class=cellinside>0.3313
+</td>
+<td class=cellinside>0.111
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITestS-CF recall = ITestD-CF recall
+</td>
+<td class=cellinside>0.0055
+</td>
+<td class=cellinside>0.316
+</td></tr>
+ 
+	</tbody>
+</table>
+ </td></table>
+ <br>
+            </section>
                         </div>
         </div>
   </main>

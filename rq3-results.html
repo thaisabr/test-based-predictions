@@ -70,13 +70,68 @@
 
 <p class='character'><br></p>
 
+<p class='character'><hr></p>
+
  <h4 > ITest is a more precise predictor than IRandom</h4>
 
 <p align=center><img src='img/evaluation_irandom-precision.png' border=1 width=500>
+<p class='character'><hr></p>
+
  <h4 > ITest might predict more changes in controllers than a random predictor, but in the best case, 
              it acts as a random predictor when dealing with any change</h4>
 
-<p align=center><img src='img/evaluation_irandom-recall.png' border=1 width=500>            </section>
+<p align=center><img src='img/evaluation_irandom-recall.png' border=1 width=500>
+<p class='character'><hr></p>
+
+
+<p align= center >
+<table cellspacing=0 border=0>
+<caption align=top class=captiondataframe>Wilcoxon Signed-Rank test applied to precision and recall measures of ITest and IRandom</caption>
+<tr><td>
+	<table border=0 class=build_conflicts center>
+	<tbody> 
+	<tr class= firstline > 
+		<th>Hypothesis  </th>
+		<th>pvalue  </th>
+		<th>r</th> 
+	</tr> 
+<tr> 
+<td class=cellinside>ITest-NF precision = IRandom-NF precision
+</td>
+<td class=cellinside>5.3e-50
+</td>
+<td class=cellinside>0.838
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-NF recall = IRandom-NF recall
+</td>
+<td class=cellinside>1.5e-23
+</td>
+<td class=cellinside>0.563
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-CF precision = IRandom-CF precision
+</td>
+<td class=cellinside>1.9e-35
+</td>
+<td class=cellinside>0.700
+</td></tr>
+ 
+<tr> 
+<td class=cellinside>ITest-CF recall = IRandom-CF recall
+</td>
+<td class=cellinside>8.2e-01
+</td>
+<td class=cellinside>0.013
+</td></tr>
+ 
+	</tbody>
+</table>
+ </td></table>
+ <br>
+            </section>
                         </div>
         </div>
   </main>
