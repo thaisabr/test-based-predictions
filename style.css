@@ -94,17 +94,27 @@ table {
     display: block;
 }
 
+table.center {
+    margin-left:auto; 
+    margin-right:auto;
+  }
+
+caption { 
+    display: table-caption;
+    text-align: center-left;
+    font-weight: bold;
+}
 
 .build_conflicts th{
 	border: 1px solid #808080; /*#dddddd;*/
-    text-align: left;
+    text-align: center;
     padding: 6px;
 }
 
 .build_conflicts td{
     border: 1px solid #808080; /*#dddddd;*/
     text-align: center;
-    padding: 2px;
+    padding: 6px;
 }
 
 .build_conflicts tr:nth-child(even) {
